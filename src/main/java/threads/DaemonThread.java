@@ -6,7 +6,7 @@ public class DaemonThread {
 		Thread daemonThread = new Thread(new DaemonTask());
 		daemonThread.setDaemon(true); // Set the thread as daemon
 		daemonThread.start();
-
+		
 		// Main thread
 		System.out.println("Main thread started.");
 		try {
