@@ -1,0 +1,98 @@
+acid and solid principle to learn
+
+
+
+
+Other topics with example:
+
+Final Variable: A variable declared as final cannot be modified after it is initialized. This makes the variable a constant.
+Final Methods: A method declared as final cannot be overridden by subclasses.
+Final Class: A class declared as final cannot be subclassed ie. it cant be extended
+
+Finally: The finally block is used in conjunction with a try block to ensure that a block of code is executed regardless of whether an exception is thrown or not. It is typically used for cleanup activities, such as closing files or releasing resources.
+Finalize: The finalize method is called by the garbage collector on an object when garbage collection determines that there are no more references to the object. This method is meant to perform cleanup before the object is reclaimed by the garbage collector. Note that the use of finalize is generally discouraged in modern Java programming due to unpredictability and better alternatives
+
+Cleaner API: The Cleaner API in Java, introduced in Java 9, provides a more flexible and robust way to manage cleanup actions than the traditional finalize method. The Cleaner API allows you to register cleanup actions (cleanable objects) that will be executed when an object becomes unreachable, without relying on the unpredictable nature of the garbage collector.
+
+Volatile Keyword: It ensures that the value of the volatile variable is always read from and written to the main memory, providing a visibility guarantee. This means that changes made by one thread to a volatile variable are immediately visible to other threads.
+
+Transient Keyword: The transient keyword in Java is used to indicate that a field should not be serialized when an object is converted into a byte stream. Serialization is the process of converting an object into a format that can be easily stored or transmitted and later reconstructed. Fields that contain sensitive information (like passwords or personal data) can be marked as transient to avoid including them in the serialized representation of the object.
+
+
+Abstract classes: An abstract class is a class that cannot be instantiated directly. It acts as a blueprint for subclasses that inherit its properties and behavior.You declare an abstract class using the abstract keyword before the class declaration.An abstract class can have a mix of abstract and non-abstract methods and it cant be instantiated.It can have fields and constructors.
+
+Sealed Classes:A sealed class is declared using the sealed keyword before the class declaration.
+It restricts which other classes can extend it by explicitly listing the permitted subclasses within a permits clause.
+Subclasses of a sealed class must also be declared with a modifier: final, sealed, or non-sealed.
+
+Non-sealed Classes: Alongside sealed classes, Java introduces the concept of non-sealed classes. These are classes that can extend a sealed class without any further restrictions, allowing the class hierarchy to be extended freely beyond that point.
+
+static: The static keyword in Java is used to define members (variables, methods, blocks, and nested classes) that belong to the class rather than to instances of the class
+
+
+interface: Interfaces are declared using the interface keyword followed by the interface name. Interfaces can contain only abstract methods(methods without body)  and constant/final variable. They should be implemented using implements keyword
+
+
+Enum: enum are named constants
+
+
+
+default method:default methods provide a powerful mechanism for enhancing existing interfaces without breaking backward compatibility.They allow you to add new functionalities to existing interfaces without forcing all implementing classes to rewrite their code. default methods are available to classes implementing them without  necessarily overriding them
+
+Encapsulation: Encapsulation is one of the fundamental principles of object-oriented programming (OOP) in Java. It refers to the bundling of data (variables) and methods (functions) that operate on that data into a single unit, known as a class. Encapsulation also involves restricting direct access to some of the object's components, which is a means of preventing unintended interference and misuse of the data. Ex: Beans
+
+Records: Record is used to create java beans, it contains all the basic functions like toString(), constructors,hashcode, equals and  such functions that we usually define in a java bean
+for ex: record User1(int id,String name) {};
+
+
+Dynamic Dispatch/Dynamic Method Dispatch: It allows the runtime system to determine which method to invoke based on the actual object (instance) rather than the reference type.
+For Ex: Dog extends Animal,  then Animal animal = new Dog(); will create a reference of dog type and any method on animal will call dog type methods
+
+
+LAmbda Expression: They are mostly used to implement functional interface(ie. interface with only one method), they follow syntax ()->{};
+
+Method references:	They provide a way to refer to methods without invoking them, allowing for more readable and concise code. Method references can be used to refer to both static and instance methods, as well as constructors.
+For Ex: List<String> names = Arrays.asList("Alice", "Bob", "Charlie");
+names.forEach(System.out::println);
+
+Generics: allow you to create classes, interfaces, and methods with type parameters, which provide a way to re-use the same code with different types while maintaining type safety.
+
+ForEx: public class Box<T> {
+    private T content;
+
+    public void setContent(T content) {
+        this.content = content;
+    }
+
+    public T getContent() {
+        return content;
+    }
+Collections Framework:The Collection interface is the root of the collection hierarchy. It represents a group of objects, known as its elements.
+List: It is an interface that extends Collections, it is only an interface and doesn't contain any concrete method, it is further implemented by ArrayList, LinkedList, Vector and Stack
+ArrayList: It is a dynamic size array implementation of array interface, common functions include add(), remove(), isEmpty(),size()
+LinkedList: LinkedList class is a part of the java.util package and implements both the List and Deque interfaces, making it a versatile choice for various list and queue operations. A LinkedList is a doubly linked list, meaning each node points to both its predecessor and successor.
+Stack: It is a  collection that follows the last-in, first-out (LIFO) principle, common methods are push, pop, peek, empty,searh
+
+Set: A set is used  to store elements where only one instance is allowed for each element. A set is an interface, which has many implementations like HashSet, TreeSet and LinkedSet depending on how the values are stored.
+
+HashSet:This is the most common and fastest implementation for basic Set operations. It uses a hash table[keys are a hash and the
+values are an Object] for efficient storage and retrieval but doesn't maintain insertion order.The main benefit is that adding elements and checking whether an element is in the set both have constant time. The trade-off is that you lose the order in which you inserted the elements. Elements are not in any order
+
+TreeSet: It is a collection that uses a tree structure to maintain a sorted order of elements.Elements in a TreeSet are sorted according to their natural ordering or by a Comparator provided at set creation time.TreeSet provides navigation methods like lower, floor, ceiling, and higher, which return elements based on their relationship to a given value.
+
+LinkedHashSet:It is a class that implements the Set interface and extends HashSet to maintain a doubly-linked list running through all of its entries.It maintains the order in which elements are inserted.
+
+Queue: It keeps elements in FIFO order, q can be instantiated using Queue<String> q=new LinkedList();
+Dequeue: it represents a collection that allows the insertion, removal, and retrieval of elements at both ends. It extends the Queue interface.
+BlockingQueue: It is the part of concurrent package, you can set the size and only elements of that size are added, rest add statements are blocked.
+
+
+Map: It represents a collection of key-value pairs, mapping keys to values. Duplicate keys are not allowed, but values can be duplicated.
+
+HashMap:HashMap works on the principle of hashing.A hash function is used to compute an index (also called hashcode) into an array of buckets. The hashcode determines where the key-value pair should be stored.When multiple keys hash to the same index, a collision occurs. HashMap handles collisions by chaining (i.e., storing multiple elements in the same bucket using a linked list or tree structure).
+
+LinkedHashMap:It extends the hashmap interface and maintains  a doubly-linked list running through all its entries, which defines the iteration order, either insertion-order or access-order
+
+TreeMap: The elements in a TreeMap are sorted  according to their keys by their natural ordering or by a custom comparator.Provides methods to navigate through the map, such as lowerEntry, higherEntry, floorEntry, and ceilingEntry.
+
+Hashtable:Hashtable is a legacy class in Java that implements the Map interface and provides a way to store key-value pairs. It was part of the original version of Java and has been retrofitted to implement the Map interface in the Java Collections Framework. Despite being largely replaced by HashMap due to some limitations, Hashtable is still useful in certain situations, particularly when thread-safety is required without additional synchronization.It is part of the original java.util package and predates the Java Collections Framework introduced in Java 1.2.
